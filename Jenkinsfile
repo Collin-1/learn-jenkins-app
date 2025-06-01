@@ -51,7 +51,7 @@ pipeline {
                 zip -q -r deployment.zip . -x "*.log" "test-results/*" "node_modules/*"
                 
                 # Only show the deployment file
-                ls -la deployment.zip
+                ls -la
                 pwd
                 echo "Deployment package created"
 
