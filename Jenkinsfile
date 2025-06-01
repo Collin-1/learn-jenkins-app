@@ -61,12 +61,15 @@ pipeline {
                 echo "Extracting deployment package..."
                 unzip -q deployment.zip -d /tmp/website-deploy
                 
+                ls /tmp/website-deploy
+
                 # Create website directory if it doesn't exist
                 mkdir -p /var/www/html
                 
                 # Move files to website folder
                 echo "Moving files to website directory..."
                 cp -r /tmp/website-deploy/* /var/www/html/
+                
                 
                 # Set proper permissions (optional)
                 chmod -R 755 /var/www/html
