@@ -60,22 +60,7 @@ pipeline {
                 echo "Moving files to website directory..."
                 cp -r /tmp/website-deploy/* /var/www/html/
                 
-                echo "Files deployed to web directory"
-                '''
-            }
-        }
-
-        stage('Cleanup') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                    args '-u root'
-                }
-            }
-            steps {
-                sh '''
-                echo "Starting cleanup and verification..."
+                echo "Files deployed to web directory"echo "Starting cleanup and verification..."
                 
                 # Verify deployment
                 echo "Deployment completed. Files in website directory:"
@@ -84,10 +69,10 @@ pipeline {
                 # Clean up temporary directory
                 rm -rf /tmp/website-deploy
                 echo "Cleanup completed successfully"
+
                 '''
             }
         }
-
     }
 
     post {
