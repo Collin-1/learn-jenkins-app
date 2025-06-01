@@ -43,7 +43,8 @@ pipeline {
             steps {
                 sh '''
                 echo deploying
-                /usr/bin/zip -r deployment.zip .
+                apk add --no-cache zip
+                zip -r deployment.zip .
                 '''
             }
         }
