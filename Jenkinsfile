@@ -73,7 +73,7 @@ pipeline {
                 
                 # Verify deployment
                 echo "Deployment completed. Files in website directory:"
-                ls -la /var/www/html/
+                ls /var/www/html/
                 
                 # Clean up temporary directory
                 rm -rf /tmp/website-deploy
