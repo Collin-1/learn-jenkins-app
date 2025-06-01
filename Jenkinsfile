@@ -38,13 +38,12 @@ pipeline {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
-                    args '-u root' 
                 }
             }
             steps {
                 sh '''
                 echo deploying
-                apk add --no-cache zip
+                apt-get update && apt-get install -y zip unzip
                 zip -r deployment.zip .
                 '''
             }
