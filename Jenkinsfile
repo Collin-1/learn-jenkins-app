@@ -38,12 +38,13 @@ pipeline {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
+                    args '-u root'
                 }
             }
             steps {
                 sh '''
                 echo deploying
-                apk add --no-cache zip >/dev/null 2>&1
+                apk add --no-cache zip
                 zip -r deployment.zip .
                 '''
             }
