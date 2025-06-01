@@ -48,7 +48,7 @@ pipeline {
                 apk add --no-cache --quiet zip >/dev/null 2>&1
                 
                 # Create zip with less verbose output
-                zip -q -r deployment.zip build/
+                zip -q -r deployment.zip build/*
                 echo "Created deployment.zip with build folder contents"
                 
                 
