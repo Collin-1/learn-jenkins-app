@@ -20,7 +20,7 @@ pipeline {
                 
                 rm -f deployment.zip
                 
-                # Create zip with less
+                # Create zip
                 zip -q -r deployment.zip build/*
                 echo "Created deployment.zip with build folder contents"
                 
