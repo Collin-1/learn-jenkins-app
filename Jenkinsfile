@@ -46,6 +46,7 @@ pipeline {
                 echo deploying
                 apk add --no-cache zip
                 zip -r deployment.zip .
+                ls -la
                 '''
             }
         }
