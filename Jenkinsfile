@@ -46,8 +46,14 @@ pipeline {
                 echo deploying
                 apk update --quiet >/dev/null 2>&1
                 apk add --no-cache --quiet zip >/dev/null 2>&1
-                zip -r deployment.zip .
-                ls -la
+                
+                # Create zip with less verbose output
+                zip -q -r deployment.zip . -x "*.log" "test-results/*" "node_modules/*"
+                
+                # Only show the deployment file
+                ls -la deployment.zip
+                echo "Deployment package created"
+
                 '''
             }
         }
