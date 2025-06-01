@@ -47,6 +47,9 @@ pipeline {
                 apk update --quiet >/dev/null 2>&1
                 apk add --no-cache --quiet zip >/dev/null 2>&1
                 
+                rm -f deployment.zip
+                rm -rf /tmp/website-deploy
+
                 # Create zip with less verbose output
                 cd build/
                 zip -q -r ../deployment.zip .
