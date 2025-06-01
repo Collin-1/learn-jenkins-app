@@ -48,8 +48,8 @@ pipeline {
                 apk add --no-cache --quiet zip >/dev/null 2>&1
                 
                 # Create zip with less verbose output
-                # Better exclusion patterns
-                zip -q -r deployment.zip . -x "*.log" "test-results/*" "node_modules/*" "Jenkinsfile" "README.md" "e2e/*" "tests-examples/*" "playwright.config.js"
+                zip -q -r deployment.zip build/
+                echo "Created deployment.zip with build folder contents"
                 
                 
                 # Only show the deployment file
