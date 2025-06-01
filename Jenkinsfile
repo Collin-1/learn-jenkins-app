@@ -46,8 +46,7 @@ pipeline {
             }
             steps {
                 sh '''
-                npm install -g netlify-cli
-                netlify --version
+                echo deploying
                 '''
             }
         }
