@@ -52,9 +52,32 @@ pipeline {
                 
                 # Only show the deployment file
                 ls
-                pwd
                 echo "Deployment package created"
 
+                # Create a temporary directory for extraction
+                mkdir -p /tmp/website-deploy
+                
+                # Unzip the deployment package
+                echo "Extracting deployment package..."
+                unzip -q deployment.zip -d /tmp/website-deploy
+                
+                # Create website directory if it doesn't exist
+                mkdir -p /var/www/html
+                
+                # Move files to website folder
+                echo "Moving files to website directory..."
+                cp -r /tmp/website-deploy/* /var/www/html/
+                
+                # Set proper permissions (optional)
+                chmod -R 755 /var/www/html
+                
+                # Verify deployment
+                echo "Deployment completed. Files in website directory:"
+                ls -la /var/www/html/
+                
+                # Clean up temporary directory
+                rm -rf /tmp/website-deploy
+                echo "Cleanup completed"
                 '''
             }
         }
