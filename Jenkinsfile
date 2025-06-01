@@ -43,7 +43,7 @@ pipeline {
             steps {
                 sh '''
                 echo deploying
-                zip -r deployment.zip .
+                /usr/bin/zip -r deployment.zip .
                 '''
             }
         }
