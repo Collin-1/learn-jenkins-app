@@ -13,6 +13,8 @@ pipeline {
             steps {
                 sh '''
                 echo "Starting packaging process..."
+
+                # Move files to website folder
                 apk update --quiet >/dev/null 2>&1
                 apk add --no-cache --quiet zip >/dev/null 2>&1
                 
