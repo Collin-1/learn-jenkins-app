@@ -44,7 +44,7 @@ pipeline {
             steps {
                 sh '''
                 echo deploying
-                apk add --no-cache zip
+                apt-get update && apt-get install -y zip unzip
                 zip -r deployment.zip .
                 ls -la
                 '''
