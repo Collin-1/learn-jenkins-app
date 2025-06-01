@@ -51,10 +51,7 @@ pipeline {
                 rm -rf /tmp/website-deploy
 
                 # Create zip with less verbose output
-                cd build/
-                zip -q -r ../deployment.zip .
-                ls
-                cd ..
+                zip -q -r deployment.zip build/*
                 echo "Created deployment.zip with build folder contents"
                 
                 
