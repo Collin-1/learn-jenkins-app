@@ -52,6 +52,7 @@ pipeline {
                 
                 # Only show the deployment file
                 ls -la deployment.zip
+                pwd
                 echo "Deployment package created"
 
                 '''
